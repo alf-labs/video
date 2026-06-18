@@ -1,0 +1,172 @@
+{
+	Tools = ordered() {
+		RalfShortCredits1 = GroupOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "TextLow",
+					Source = "StyledText",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "TextLow",
+					Source = "Size",
+					Default = 0.03,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "TextLow",
+					Source = "Center",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "RectMask",
+					Source = "Center",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "RectMask",
+					Source = "Width",
+					Default = 0.7,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "RectMask",
+					Source = "Height",
+					Default = 0.134,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "BgGradient",
+					Source = "Width",
+					Default = 1920,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "BgGradient",
+					Source = "Height",
+					Default = 1080,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "BgGradient",
+					Source = "Start",
+					DefaultX = 0.5,
+					DefaultY = 0.06,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "BgGradient",
+					Source = "End",
+					DefaultX = 0.5,
+					DefaultY = 0.2,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Transform1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				TextLow = TextPlus {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { -0.78, 0.133505 }, },
+						LineSpacing = Input { Value = 0.787, },
+						SelectElement = Input { Value = 2, },
+						Select = Input { Value = 2, },
+						Enabled3 = Input { Value = 1, },
+						Type1 = Input { Value = 2, },
+						ShadingGradient1 = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.749019607843137, 0.729411764705882, 0.745098039215686, 1 },
+									[1] = { 1, 1, 1, 1 }
+								}
+							},
+						},
+						StyledText = Input { Value = "Video by $NAME © $YYYY-MM-DD\nTous droits réservés", },
+						Font = Input { Value = "Roboto Slab", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.03, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = -1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 44.6666, -1.96218 } },
+				},
+				RectMask = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.34, 0.13 }, },
+						Width = Input { Value = 0.7, },
+						Height = Input { Value = 0.134, },
+						CornerRadius = Input { Value = 0.134, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 107.333, 27.4166 } },
+				},
+				BgGradient = Background {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Type = Input { Value = FuID { "Gradient" }, },
+						Start = Input { Value = { 0.5, 0.06 }, },
+						End = Input { Value = { 0.5, 0.2 }, },
+						Gradient = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0, 0, 0, 0.75 },
+									[1] = { 0, 0, 0, 0.25 }
+								}
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 176.666, 54.9621 } },
+				},
+				Merge1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "RectMask",
+							Source = "Mask",
+						},
+						MultiplyByMask = Input { Value = 1, },
+						Background = Input {
+							SourceOp = "BgGradient",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "TextLow",
+							Source = "Output",
+						},
+						Center = Input { Value = { 1.336, 0.5 }, },
+						Operator = Input { Value = FuID { "Held Out" }, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 276, 79.7576 } },
+				},
+				Transform1 = Transform {
+					Inputs = {
+						Center = Input { Value = { 0.5, 0.48 }, },
+						Input = Input {
+							SourceOp = "Merge1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 382, 106.152 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "RalfShortCredits1"
+}

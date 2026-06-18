@@ -1,0 +1,61 @@
+{
+	Tools = ordered() {
+		RalfTitleEnd2 = GroupOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Template",
+					Source = "StyledText",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Template",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Template = TextPlus {
+					CtrlWZoom = false,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.06, 0.9 }, },
+						Type1 = Input { Value = 2, },
+						ShadingGradient1 = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.745098039215686, 0.725490196078431, 0.741176470588235, 1 },
+									[1] = { 1, 1, 1, 1 }
+								}
+							},
+						},
+						ShadingMappingSize1 = Input { Value = 0.5, },
+						ShadingMappingAspect1 = Input { Value = 0.6, },
+						ShadingMappingLevel1 = Input { Value = 2, },
+						StyledText = Input { Value = "Title Line 1\nTitle Line 2\n\n \n\n\nVideo by $NAME\n\n© $YYYY-MM-DD\nTous droits réservés", },
+						Font = Input { Value = "Roboto Slab", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.0591, },
+						VerticalTopCenterBottom = Input { Value = -1, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = -1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						AdvancedFontControls = Input { Value = 1, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+						TabSpacing = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 16.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "RalfTitleEnd2"
+}

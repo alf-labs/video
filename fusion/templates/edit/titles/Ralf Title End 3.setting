@@ -1,0 +1,137 @@
+{
+	Tools = ordered() {
+		RalfTitleEnd3 = MacroOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "TextDateDroits",
+					Source = "StyledText",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "TextDateDroits",
+					Source = "Size",
+					Default = 0.0591,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "TextDateDroits",
+					Source = "Center",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "TextTitleName",
+					Source = "StyledText",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "TextTitleName",
+					Source = "Size",
+					Default = 0.0591,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "TextTitleName",
+					Source = "Center",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				TextDateDroits = TextPlus {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.55, 0.25 }, },
+						Type1 = Input { Value = 2, },
+						ShadingGradient1 = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.745098039215686, 0.725490196078431, 0.741176470588235, 1 },
+									[1] = { 1, 1, 1, 1 }
+								}
+							},
+						},
+						ShadingMappingSize1 = Input { Value = 0.5, },
+						ShadingMappingAspect1 = Input { Value = 0.6, },
+						ShadingMappingLevel1 = Input { Value = 2, },
+						StyledText = Input { Value = "© $YYYY-MM-DD\nTous droits réservés", },
+						Font = Input { Value = "Roboto Slab", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.0591, },
+						VerticalTopCenterBottom = Input { Value = -1, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = -1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						AdvancedFontControls = Input { Value = 1, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+						TabSpacing = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 228, 22.8333 } },
+				},
+				TextTitleName = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.1, 0.25 }, },
+						Type1 = Input { Value = 2, },
+						ShadingGradient1 = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.745098039215686, 0.725490196078431, 0.741176470588235, 1 },
+									[1] = { 1, 1, 1, 1 }
+								}
+							},
+						},
+						ShadingMappingSize1 = Input { Value = 0.5, },
+						ShadingMappingAspect1 = Input { Value = 0.6, },
+						ShadingMappingLevel1 = Input { Value = 2, },
+						StyledText = Input { Value = "Title Line 1\nVideo by $NAME", },
+						Font = Input { Value = "Roboto Slab", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.0591, },
+						VerticalTopCenterBottom = Input { Value = -1, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = -1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						AdvancedFontControls = Input { Value = 1, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+						TabSpacing = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 282.667, 51.5909 } },
+				},
+				Merge1 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "TextDateDroits",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "TextTitleName",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 342, 81.8939 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "RalfTitleEnd3"
+}

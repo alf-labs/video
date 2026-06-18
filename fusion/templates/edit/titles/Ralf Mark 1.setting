@@ -1,0 +1,53 @@
+{
+	Tools = ordered() {
+		RalfMark1 = GroupOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Template",
+					Source = "StyledText",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Template",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Template = TextPlus {
+					CtrlWZoom = false,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.944, 0.065 }, },
+						SelectElement = Input { Value = 2, },
+						Select = Input { Value = 2, },
+						Enabled3 = Input { Value = 1, },
+						Red1 = Input { Value = 0.8470588235294, },
+						Green1 = Input { Value = 0.8235294117647, },
+						Blue1 = Input { Value = 0.8470588235294, },
+						StyledText = Input { Value = "$IMG © $NAME\n$URL", },
+						Font = Input { Value = "Roboto Slab", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.0433, },
+						VerticalTopCenterBottom = Input { Value = 1, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = 1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 16.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "RalfMark1"
+}

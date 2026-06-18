@@ -1,0 +1,283 @@
+{
+	Tools = ordered() {
+		RalfTitleMain1 = GroupOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "TextHi",
+					Source = "StyledText",
+                    Name = "Hi Text",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "TextHi",
+					Source = "Size",
+					Default = 0.0866,
+                    Name = "Hi Size",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "TextHi",
+					Source = "Center",
+                    Name = "Hi Center",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "TextLow",
+					Source = "StyledText",
+                    Name = "Low Text",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "TextLow",
+					Source = "Size",
+					Default = 0.06,
+                    Name = "Low Size",
+				},
+				Input6 = InstanceInput {
+					SourceOp = "TextLow",
+					Source = "Center",
+                    Name = "Low Center",
+				},
+				Input7 = InstanceInput {
+					SourceOp = "RectMask",
+					Source = "Center",
+                    Name = "Mask Center",
+				},
+				Input8 = InstanceInput {
+					SourceOp = "RectMask",
+					Source = "Height",
+					Default = 0.291,
+                    Name = "Mask Height",
+				},
+				Input9 = InstanceInput {
+					SourceOp = "BgGradient",
+					Source = "Height",
+					Default = 1080,
+                    Name = "Gradient Height",
+				},
+				Input10 = InstanceInput {
+					SourceOp = "BgGradient",
+					Source = "Start",
+					DefaultX = 0.5,
+					DefaultY = 0.1,
+                    Name = "Gradient Start",
+				},
+				Input11 = InstanceInput {
+					SourceOp = "BgGradient",
+					Source = "End",
+					DefaultX = 0.5,
+					DefaultY = 0.35,
+                    Name = "Gradient End",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				TextHi = TextPlus {
+					ExtentSet = true,
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.058, 0.303344139650873 }, },
+						LineSpacing = Input { Value = 0.787, },
+						Enabled3 = Input { Value = 1, },
+						Type1 = Input { Value = 2, },
+						ShadingGradient1 = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.749019607843137, 0.729411764705882, 0.745098039215686, 1 },
+									[1] = { 1, 1, 1, 1 }
+								}
+							},
+						},
+						ShadingMappingSize1 = Input { Value = 0.5, },
+						ShadingMappingAspect1 = Input { Value = 0.6, },
+						ShadingMappingLevel1 = Input { Value = 2, },
+						ShadingGradient3 = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.729411764705882, 0.745098039215686, 0.729411764705882, 1 },
+									[1] = { 1, 1, 1, 1 }
+								}
+							},
+						},
+						StyledText = Input {
+							SourceOp = "CharacterLevelStyling1",
+							Source = "StyledText",
+						},
+						Font = Input { Value = "Roboto Slab", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.0866, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = 1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 48.6667, -19.2576 } },
+				},
+				CharacterLevelStyling1 = StyledTextCLS {
+					Inputs = {
+						Text = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = "Title Here"
+							},
+						},
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Bold", },
+						RightClickHereToAnimateCharacterLevelStyling = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+				},
+				TextLow = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.058, 0.191124688279302 }, },
+						LineSpacing = Input { Value = 0.787, },
+						Enabled3 = Input { Value = 1, },
+						Type1 = Input { Value = 2, },
+						ShadingGradient1 = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.749019607843137, 0.729411764705882, 0.745098039215686, 1 },
+									[1] = { 1, 1, 1, 1 }
+								}
+							},
+						},
+						ShadingMappingSize1 = Input { Value = 0.5, },
+						ShadingMappingAspect1 = Input { Value = 0.6, },
+						StyledText = Input {
+							SourceOp = "CharacterLevelStyling1_1",
+							Source = "StyledText",
+						},
+						Font = Input { Value = "Roboto Slab", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.06, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = 1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 70.6666, 10.7121 } },
+				},
+				CharacterLevelStyling1_1 = StyledTextCLS {
+					CtrlWZoom = false,
+					Inputs = {
+						Text = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = "$LOCATION, $CITY"
+							},
+						},
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Bold", },
+						RightClickHereToAnimateCharacterLevelStyling = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+				},
+				RectMask = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.5, 0.2339901477833 }, },
+						Width = Input { Value = 1, },
+						Height = Input { Value = 0.291, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 97.333, 38.8788 } },
+				},
+				Merge2 = Merge {
+					Inputs = {
+						Blend = Input { Value = 0.8, },
+						Background = Input {
+							SourceOp = "TextHi",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "TextLow",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 218, 55.5606 } },
+				},
+				Merge1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "RectMask",
+							Source = "Mask",
+						},
+						MultiplyByMask = Input { Value = 1, },
+						Background = Input {
+							SourceOp = "BgGradient",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge2",
+							Source = "Output",
+						},
+						Center = Input { Value = { 1.336, 0.5 }, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 286, 80.0909 } },
+				},
+				BgGradient = Background {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Type = Input { Value = FuID { "Gradient" }, },
+						Start = Input { Value = { 0.5, 0.1 }, },
+						End = Input { Value = { 0.5, 0.35 }, },
+						Gradient = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0, 0, 0, 0.75 },
+									[1] = { 0, 0, 0, 0.25 }
+								}
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 132, 102.182 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "RalfTitleMain1"
+}

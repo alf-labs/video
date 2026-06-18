@@ -1,0 +1,140 @@
+{
+	Tools = ordered() {
+		RalfMark2 = GroupOperator {
+			CtrlWZoom = false,
+			Inputs = ordered() {
+				TextUnicode_StyledText = InstanceInput {
+					SourceOp = "TextUnicode",
+					Source = "StyledText",
+					Page = "Controls",
+				},
+				TextUnicode_Font = InstanceInput {
+					SourceOp = "TextUnicode",
+					Source = "Font",
+					ControlGroup = 1,
+				},
+				TextUnicode_Style = InstanceInput {
+					SourceOp = "TextUnicode",
+					Source = "Style",
+					ControlGroup = 1,
+				},
+				TextUnicode_Size = InstanceInput {
+					SourceOp = "TextUnicode",
+					Source = "Size",
+					Default = 0.0433,
+				},
+				TextUnicode_Center = InstanceInput {
+					SourceOp = "TextUnicode",
+					Source = "Center",
+					Name = "Center",
+				},
+				Separator1 = Input {
+					Type = "Separator",
+					Page = "Controls",
+				},
+				TextLabel_StyledText = InstanceInput {
+					SourceOp = "TextLabel",
+					Source = "StyledText",
+				},
+				TextLabel_Font = InstanceInput {
+					SourceOp = "TextLabel",
+					Source = "Font",
+					ControlGroup = 3,
+				},
+				TextLabel_Style = InstanceInput {
+					SourceOp = "TextLabel",
+					Source = "Style",
+					ControlGroup = 3,
+				},
+				TextLabel_Size = InstanceInput {
+					SourceOp = "TextLabel",
+					Source = "Size",
+					Default = 0.0433,
+				},
+				TextLabel_Center = InstanceInput {
+					SourceOp = "TextLabel",
+					Source = "Center",
+					Name = "Center",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				TextUnicode = TextPlus {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.813807531380765, 0.125682382133995 }, },
+						SelectElement = Input { Value = 2, },
+						Select = Input { Value = 2, },
+						Enabled3 = Input { Value = 1, },
+						Red1 = Input { Value = 0.8470588235294, },
+						Green1 = Input { Value = 0.8235294117647, },
+						Blue1 = Input { Value = 0.8470588235294, },
+						StyledText = Input { Value = "$IMG ", },
+						Font = Input { Value = "Segoe UI Symbol", },
+						Style = Input { Value = "Regular", },
+						Size = Input { Value = 0.0433, },
+						VerticalTopCenterBottom = Input { Value = 1, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = 1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						AdvancedFontControls = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 182, 3.30303 } },
+				},
+				TextLabel = TextPlus {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.944, 0.065 }, },
+						SelectElement = Input { Value = 2, },
+						Select = Input { Value = 2, },
+						Enabled3 = Input { Value = 1, },
+						Red1 = Input { Value = 0.8470588235294, },
+						Green1 = Input { Value = 0.8235294117647, },
+						Blue1 = Input { Value = 0.8470588235294, },
+						StyledText = Input { Value = " © $NAME\n$URL", },
+						Font = Input { Value = "Segoe UI", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.0433, },
+						VerticalTopCenterBottom = Input { Value = 1, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = 1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						AdvancedFontControls = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 230.667, 33.8788 } },
+				},
+				Merge1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "TextLabel",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "TextUnicode",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 298, 64.7879 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "RalfMark2"
+}

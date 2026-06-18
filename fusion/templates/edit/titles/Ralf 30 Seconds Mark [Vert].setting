@@ -1,0 +1,94 @@
+{
+	Tools = ordered() {
+		Ralf30SecondsMarkVert1 = GroupOperator {
+						GlobalOut = Input { Value = 900, },
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Template",
+					Source = "GlobalIn",
+					Name = "",
+					ControlGroup = 1,
+					Default = 0,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Template",
+					Source = "GlobalOut",
+					Name = "",
+					ControlGroup = 1,
+					Default = 900,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Template",
+					Source = "StyledText",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Template",
+					Source = "Font",
+					ControlGroup = 3,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Template",
+					Source = "Style",
+					ControlGroup = 3,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Template",
+					Source = "Size",
+					Default = 0.08,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Template",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Template = TextPlus {
+					ExtentSet = true,
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					Inputs = {
+						GlobalOut = Input { Value = 900, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Center = Input { Value = { 0.5, 0.95 }, },
+						Blue1 = Input { Value = 0, },
+						StyledText = Input { Value = "30 Second Mark", },
+						Font = Input { Value = "DejaVu Sans", },
+						Style = Input { Value = "Bold", },
+						Size = Input {
+							SourceOp = "TemplateSize",
+							Source = "Value",
+						},
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						AdvancedFontControls = Input { Value = 1, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 16.5 } },
+				},
+				TemplateSize = BezierSpline {
+					SplineColor = { Red = 225, Green = 0, Blue = 225 },
+					CtrlWShown = false,
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0.2, RH = { 5.66666666666667, 0.166666666666667 }, Flags = { Linear = true } },
+						[17] = { 0.1, LH = { 11.3333333333333, 0.133333333333333 }, RH = { 305.333333333333, 0.1 }, Flags = { Linear = true } },
+						[882] = { 0.1, LH = { 593.666666666667, 0.1 }, RH = { 887.333333333333, 0.0933333333333333 }, Flags = { Linear = true } },
+						[898] = { 0.08, LH = { 892.666666666667, 0.0866666666666667 }, Flags = { Linear = true } }
+					}
+				}
+			},
+		}
+	},
+	ActiveTool = "Ralf30SecondsMarkVert1"
+}
