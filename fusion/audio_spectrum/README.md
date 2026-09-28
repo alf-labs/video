@@ -8,11 +8,12 @@ Here’s the demo of what it can achieve:
 https://youtu.be/auhcC5L7DoA
 
 or click the image below to watch the YT video:
+
 [![Watch the video](https://img.youtube.com/vi/auhcC5L7DoA/hqdefault.jpg)](https://youtu.be/auhcC5L7DoA)
 
-The rest of this document focuses on usage explanations, and implementation details.
 
-## Instalation
+
+## Installation
 
 To install, grab the Fuse file here:  [`RalfAudioSpectrum.fuse`](RalfAudioSpectrum.fuse)
 
