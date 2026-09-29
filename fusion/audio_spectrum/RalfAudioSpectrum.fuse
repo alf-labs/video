@@ -8,7 +8,18 @@
 -- aka C:\Users\%USERNAME%\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion\Fuses
 --
 
-local ffi = require("ffi")
+local ffi
+
+ffi = nil
+if type(require) == "function" then
+    local success, result = pcall(require, "ffi")
+    if success then
+        ffi = result
+    end
+end
+if ffi == nil then
+    print("RalfAudioSpectrum ERROR: The LuaJIT FFI module is not available.")
+end
 
 FuRegisterClass("RalfAudioSpectrum", CT_SourceTool, {
     REGS_Name               = "Ralf Audio Spectrum",
@@ -29,32 +40,35 @@ FuRegisterClass("RalfAudioSpectrum", CT_SourceTool, {
 -- ///// STRUCTS
 
 -- https://en.wikipedia.org/wiki/WAV#WAV_file_header
-ffi.cdef[[
-    // Struct of the outer RIFF chunk
-    typedef struct {
-        char     chunkID[4];    // "RIFF"
-        uint32_t chunkSize;     // File size minus 8
-        char     format[4];     // "WAVE"
-    } WAV_RIFF_Header;
+if ffi ~= nil then
+    ffi.cdef[[
+        // Struct of the outer RIFF chunk
+        typedef struct {
+            char     chunkID[4];    // "RIFF"
+            uint32_t chunkSize;     // File size minus 8
+            char     format[4];     // "WAVE"
+        } WAV_RIFF_Header;
 
-    // Struct of the first mandatory fmt chunk
-    typedef struct {
-        char     chunkID[4];    // "fmt "
-        uint32_t chunkSize;
-        uint16_t audioFormat;   // 1 = PCM
-        uint16_t numChannels;
-        uint32_t sampleRate;
-        uint32_t bytePerSec;    // sampleRate * bytesPerBlock
-        uint16_t bytesPerBlock; // numChannels * bitsPerSample / 8
-        uint16_t bitsPerSample; // 8 or 16; we only support 16
-    } WAV_FMT_Chunk;
+        // Struct of the first mandatory fmt chunk
+        typedef struct {
+            char     chunkID[4];    // "fmt "
+            uint32_t chunkSize;
+            uint16_t audioFormat;   // 1 = PCM
+            uint16_t numChannels;
+            uint32_t sampleRate;
+            uint32_t bytePerSec;    // sampleRate * bytesPerBlock
+            uint16_t bytesPerBlock; // numChannels * bitsPerSample / 8
+            uint16_t bitsPerSample; // 8 or 16; we only support 16
+        } WAV_FMT_Chunk;
 
-    // Struct of any RIFF chunk
-    typedef struct {
-        char     chunkID[4];    // "data" is the only we need after "fmt "
-        uint32_t chunkSize;
-    } WAV_Chunk_Header;
-]]
+        // Struct of any RIFF chunk
+        typedef struct {
+            char     chunkID[4];    // "data" is the only we need after "fmt "
+            uint32_t chunkSize;
+        } WAV_Chunk_Header;
+    ]]
+end
+
 
 -- ///////////// Constants ///////////////
 -- LuaJit will optimize these if they are not modified.
@@ -1117,6 +1131,11 @@ function toSampleIndex(frameIndex, frameRate)
 end
 
 function readGlobalFile(filename)
+    if ffi == nil then
+        _loadedFileStatus = "Lua FFI module is not available"
+        return
+    end
+
     -- Reset global state
     _vuMeterLastFrameIndex = -1
     _eqBandsLastFrameIndex = -1
